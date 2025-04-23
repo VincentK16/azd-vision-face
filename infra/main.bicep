@@ -64,6 +64,15 @@ resource rg 'Microsoft.Resources/resourceGroups@2022-09-01' = {
   tags: tags
 }
 
+module m_vnet 'modules/vnet.bicep' = {
+  name: 'deploy_vnet'
+  scope: rg
+  params: {
+    location: location
+    tags: tags
+    appServiceName: names.appServiceName
+  }
+}
 
 module m_openai 'modules/openai.bicep' = {
   name: 'deploy_openai'
