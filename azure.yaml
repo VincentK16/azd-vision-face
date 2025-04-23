@@ -2,8 +2,27 @@
 
 # update the name and metadata.template to match your project
 
-name: azd-tdd-starter
+name: tdd-azd-cognitive-vision
 metadata:
-  template: azd-tdd-starterr@0.0.1-beta
+  template: tdd-azd-cognitive-vision@0.0.1
 infra:
    provider: "bicep"
+
+services:
+  web:
+    project: src/
+    language: py
+    host: appservice
+
+hooks:
+  preprovision:
+    shell: pwsh
+    run: |
+      #Grabs the Public IP of the currently connected PC and adds it into a variable.
+      $publicip = (Invoke-WebRequest -uri "http://ifconfig.me/ip").Content
+      $paramObject = @{
+        'whitelistpublicip'  = $publicip
+        }
+      #Sets the IP address as an environment variable in the Azure Developer .env file.
+      azd env set IP_ADDRESS $publicip
+       
