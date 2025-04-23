@@ -74,6 +74,7 @@ module m_openai 'modules/openai.bicep' = {
     ipAddress: ipAddress
     openaiName: names.openaiName
     tags: tags
+    appServiceName: names.appServiceName
   }
 }
 
@@ -87,6 +88,7 @@ module m_speech 'modules/speech.bicep' = {
     ipAddress: ipAddress
     speechServiceName: names.speechServiceName
     tags: tags
+    appServiceName: names.appServiceName
   }
 }
 
@@ -100,6 +102,7 @@ module m_face 'modules/face.bicep' = {
     ipAddress: ipAddress
     faceServiceName: names.faceServiceName
     tags: tags
+    appServiceName: names.appServiceName
   }
 }
 
@@ -112,6 +115,7 @@ module m_vision 'modules/vision.bicep' = {
     ipAddress: ipAddress
     visionServiceName: names.visionServiceName
     tags: tags
+    appServiceName: names.appServiceName
   }
 }
 

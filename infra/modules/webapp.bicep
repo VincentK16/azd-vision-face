@@ -116,3 +116,5 @@ resource appServicePlan 'Microsoft.Web/serverfarms@2022-03-01' = {
   }
 }
 output WEB_URI string = 'https://${web.properties.defaultHostName}'
+output WEB_VNET string = vnet.id
+output WEB_SUBNET string = vnet.properties.subnets[0].id

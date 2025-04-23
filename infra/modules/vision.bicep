@@ -3,6 +3,7 @@ param visionServiceName string
 param principalId string
 param ipAddress string
 param tags object = {}
+param appServiceName string
 
 // Create vision Service resource
 resource visionService 'Microsoft.CognitiveServices/accounts@2024-10-01' = {
@@ -21,9 +22,24 @@ resource visionService 'Microsoft.CognitiveServices/accounts@2024-10-01' = {
       ipRules: [
           {value: ipAddress}
       ]
+      virtualNetworkRules: [
+        {
+          id: subnet.id
+          ignoreMissingVnetServiceEndpoint: false
+        }
+      ]
     } : null
   }
   tags: tags
+}
+resource vnet 'Microsoft.Network/virtualNetworks@2020-06-01' existing = {
+  name: '${appServiceName}vnet'
+  
+}
+
+resource subnet 'Microsoft.Network/virtualNetworks/subnets@2020-06-01' existing = {
+  parent: vnet
+  name: '${appServiceName}sn'
 }
 
 resource visionServiceUserRole 'Microsoft.Authorization/roleDefinitions@2022-04-01' existing = {
