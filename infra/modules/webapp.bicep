@@ -13,37 +13,9 @@ param visionendpoint string
 param speechendpoint string
 param openaiendpoint string
 
-var vnetName = '${appServiceName}vnet'
-var vnetAddressPrefix = '10.0.0.0/16'
-var subnetName = '${appServiceName}sn'
-var subnetAddressPrefix = '10.0.0.0/24'
-
-resource vnet 'Microsoft.Network/virtualNetworks@2020-06-01' = {
-  name: vnetName
-  location: location
-  properties: {
-    addressSpace: {
-      addressPrefixes: [
-        vnetAddressPrefix
-      ]
-    }
-    subnets: [
-      {
-        name: subnetName
-        properties: {
-          addressPrefix: subnetAddressPrefix
-          delegations: [
-            {
-              name: 'delegation'
-              properties: {
-                serviceName: 'Microsoft.Web/serverFarms'
-              }
-            }
-          ]
-        }
-      }
-    ]
-  }
+resource vnet 'Microsoft.Network/virtualNetworks@2020-06-01' existing = {
+  name: '${appServiceName}vnet'
+  scope: resourceGroup()
 }
 
 resource web 'Microsoft.Web/sites@2022-03-01' = {
@@ -116,5 +88,4 @@ resource appServicePlan 'Microsoft.Web/serverfarms@2022-03-01' = {
   }
 }
 output WEB_URI string = 'https://${web.properties.defaultHostName}'
-output WEB_VNET string = vnet.id
-output WEB_SUBNET string = vnet.properties.subnets[0].id
+

@@ -2,6 +2,9 @@ param location string
 param tags object
 param appServiceName string
 
+param forceUpdateTag string = utcNow()
+
+
 
 var vnetName = '${appServiceName}vnet'
 var vnetAddressPrefix = '10.0.0.0/16'
@@ -62,7 +65,7 @@ resource nsg 'Microsoft.Network/networkSecurityGroups@2020-06-01' = {
   }
 }
 
-
+/*
 resource subnet 'Microsoft.Network/virtualNetworks/subnets@2020-06-01' = {
   name: subnetName
   parent: vnet
@@ -96,7 +99,7 @@ resource subnet 'Microsoft.Network/virtualNetworks/subnets@2020-06-01' = {
   }
   
 }
-
+*/
 
 
 

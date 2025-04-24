@@ -32,6 +32,10 @@ resource speechService 'Microsoft.CognitiveServices/accounts@2022-03-01' = {
     } : null
   }
   tags: tags
+  //dependsOn: [
+  //  
+  //  subnet
+  //]
 }
 resource vnet 'Microsoft.Network/virtualNetworks@2020-06-01' existing = {
   name: '${appServiceName}vnet'

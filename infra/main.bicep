@@ -74,6 +74,10 @@ module m_vnet 'modules/vnet.bicep' = {
   }
 }
 
+
+
+  
+
 module m_openai 'modules/openai.bicep' = {
   name: 'deploy_openai'
   scope: rg
@@ -85,6 +89,9 @@ module m_openai 'modules/openai.bicep' = {
     tags: tags
     appServiceName: names.appServiceName
   }
+  dependsOn: [
+    m_vnet
+  ]
 }
 
 
@@ -99,6 +106,9 @@ module m_speech 'modules/speech.bicep' = {
     tags: tags
     appServiceName: names.appServiceName
   }
+  dependsOn: [
+    m_vnet
+  ]
 }
 
 
@@ -113,6 +123,9 @@ module m_face 'modules/face.bicep' = {
     tags: tags
     appServiceName: names.appServiceName
   }
+  dependsOn: [
+    m_vnet
+  ]
 }
 
 module m_vision 'modules/vision.bicep' = {
@@ -126,6 +139,9 @@ module m_vision 'modules/vision.bicep' = {
     tags: tags
     appServiceName: names.appServiceName
   }
+  dependsOn: [
+    m_vnet
+  ]
 }
 
 module m_appService 'modules/webapp.bicep' = {
@@ -146,6 +162,8 @@ module m_appService 'modules/webapp.bicep' = {
     openaiendpoint: m_openai.outputs.endpoint
   }
 }
+
+
 
 // Add outputs from the deployment here, if needed.
 //

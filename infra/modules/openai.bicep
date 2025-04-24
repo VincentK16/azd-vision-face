@@ -34,6 +34,9 @@ resource openaiService 'Microsoft.CognitiveServices/accounts@2023-05-01' = {
       ]
     } : null
   }
+  //dependsOn: [
+  //  subnet
+  //]
 }
 
 resource vnet 'Microsoft.Network/virtualNetworks@2020-06-01' existing = {
