@@ -7,7 +7,7 @@
 
 [comment]: <> (this is the section for the Note: item; please do not make any changes here)
 ***
-### <your scenario title here>
+# Azure AI Vision Project
 
 <div style="background: lightgreen; 
             font-size: 14px; 
@@ -21,34 +21,53 @@
 
 [comment]: <> (this is the section for the Tip: item; consider adding a Tip, or remove the section between <div> and </div> if there is no tip)
 
-***
-### 1. What Resources are getting deployed
-<add a one-paragraph lengthy description of what the scenario is about, and what is getting deployed>
+This repository contains code designed to faciliate your experimentation and exploration with the Azure AI Vision service. 
 
-Provide a bullet list of the Resource Group and all deployed resources with name and brief functionality within the scenario. 
+Azure AI services help developers and organizations to rapidly create intelligent, cutting-edge, market-ready, and responsible applications with out-of-the-box and pre-built and customizable APIs and models. Example applications include natural language processing (NLP) for conversations, search, monitoring, translation, speech, vision, and decision-making.
+
+Most Azure AI services are available through REST APIs and client library SDKs in popular development languages. For more information, see each service's documentation.
+
+## Seeing the Wonderful World of AI with Azure AI Vision service
+### Azure AI Vision - Image Analaysis
+
+<img width="601" alt="image" src="https://github.com/user-attachments/assets/80c62579-fe5f-445d-b1ec-46c7a5f34ff3" />
+
+***
+
+### 1. What Resources are getting deployed
+
 
 * rg-%azdenvironmentname - Azure Resource Group.
-* TMLABAppSvcPlan-%region% - Azure App Service Plan in each region
-* TMLABWebApp-%region% - Azure App Service with static HTML webpage in each region
-* TMProfile - Traffic Manager Profile with endpoints
+* app-face-%random% - App Service
+* plan-face-%random% - App Plan
+* app-face-%random%nsg - Network Security Group
+* app-face-%random%vnet - Virtual Network
+* cop-fa-face-%random% - Face API
+* cog-oa-face-%random% - Azure OpenAI
+* cog-sp-face-%random%  Speech Service
+* cog-vi-face-%random% - Computer Vision
 
-<add a screenshot of the deployed Resource Group with resources>
-
-<img src="https://raw.githubusercontent.com/petender/azd-tdd-starter/refs/heads/main/demoguide/TM/screenshot1.png" alt="Traffic Manager Resource Group" style="width:70%;">
-<br></br>
-
-<img src="https://raw.githubusercontent.com/petender/azd-tdd-starter/refs/heads/main/demoguide/TM/screenshot2.png" alt="Traffic Manager Profile with Endpoints" style="width:70%;">
-<br></br>
-
-<img src="https://raw.githubusercontent.com/petender/azd-tdd-starter/refs/heads/main/demoguide/TM/screenshot3.png" alt="Sample WebApp" style="width:70%;">
-<br></br>
+![image](https://github.com/user-attachments/assets/ea3e5c10-2962-4e88-96d2-d12f9c615668)
 
 ### 2. What can I demo from this scenario after deployment
 
-Provide clear step-by-step instructions on what can be demoed after the scenario got deployed. If your demo requires additional manual steps to configure or update settings or make changes to the deployed resources, please mention it here.
+https://github.com/user-attachments/assets/ad7d4fdd-71a3-4707-aab8-f69c4dda66c4
 
-Add screenshots where relevant. The can be stored in their own subfolder under the demoguide folder.
+After the described in the [README.MD](../README.MD) is completeded, You will have a app service endpoint. For example...
 
+![image](https://github.com/user-attachments/assets/9d8a4e00-bc48-47cb-83bc-4d13edd65bb6)
+
+Navigate to that url and demonstrate the following AI Vision features
+
+* Tags
+* Caption
+* Dense Captions
+* Read (OCR)
+* Smart Crops
+* Objects
+* People
+
+You can use any publicly available image URL. `https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/media/quickstarts/presentation.png` is the URL used in the demonstration.
 
 
 [comment]: <> (this is the closing section of the demo steps. Please do not change anything here to keep the layout consistant with the other demoguides.)
