@@ -1,8 +1,18 @@
-# AZD Trainer-Demo-Deploy Starter template
+# Azure AI Vision Project
 
-This template could be used as a starting point for creating your own AZD-compatible templates, which you will contribute to [Trainer-Demo-Deploy](https://aka.ms/trainer-demo-deploy). 
+This repository contains code designed to faciliate your experimentation and exploration with the Azure AI Vision service. 
 
-## ⬇️ Installation
+Azure AI services help developers and organizations to rapidly create intelligent, cutting-edge, market-ready, and responsible applications with out-of-the-box and pre-built and customizable APIs and models. Example applications include natural language processing (NLP) for conversations, search, monitoring, translation, speech, vision, and decision-making.
+
+Most Azure AI services are available through REST APIs and client library SDKs in popular development languages. For more information, see each service's documentation.
+
+## Seeing the Wonderful World of AI with Azure AI Vision service
+### Azure AI Vision - Image Analaysis
+<br>
+
+### Prerequisites
+- Python (>= 3.8)
+- Visual Studio Code
 - [Azure Developer CLI - AZD](https://learn.microsoft.com/en-us/azure/developer/azure-developer-cli/install-azd)
     - When installing AZD, the above the following tools will be installed on your machine as well, if not already installed:
         - [GitHub CLI](https://cli.github.com)
@@ -13,32 +23,22 @@ This template could be used as a starting point for creating your own AZD-compat
 
 1. Create a new folder on your machine.
 ```
-mkdir tdd-azd-starter
+mkdir azd-vision-face
 ```
 2. Next, navigate to the new folder.
 ```
-cd tdd-azd-starter
+cd azd-vision-face
 ```
 3. Next, run `azd init` to initialize the deployment.
 ```
-azd init -t petender/tdd-azd-starter
+azd init -t VincentK16/azd-vision-face
 ```
-4. Copy the starter template into its own directory and modify the template.
+4. Finally, run `azd up` to deploy the needed azure resources
 ```
-Update the main.bicep and resources.bicep with your own resource information
-```
-5. Update the azure.yaml metadata
-```
-Update the name and metadata.template parameters in the azure.yaml, with your preferred scenario name, e.g. tdd-azd-trafficmgr
+azd up
 ```
 
-## 🚀 Push the scenario to your own GitHub:
+### Demo Guide
 
-1. Sync the new scenario you created into your own GitHub account into a public repo, using the same name as what you specified in the azure.yaml
+Take a look at the [Demo Guide](./demoguide/demoguide.md) for demo details.
 
-2. Once available, add the necessary "additional demo scenario artifacts" (demoguide.md, demoguide screenshots, scenario architecture diagram,...) 
-
-3. With all template details and demo artifacts available in the repo, follow the steps on how to [Contribute](https://microsoftlearning.github.io/trainer-demo-deploy/docs/contribute) to Trainer-Demo-Deploy, to get your scenario published into the catalog.
-
-
- 
